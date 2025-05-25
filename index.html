@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <title>Fortnite Gimtadienio Dovana</title>
+  <style>
+    body {
+      background-color: #c1f0f6;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    img.logo {
+      width: 200px;
+      margin-top: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .vbucks-code {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+
+    .vbucks-code:hover {
+      background-color: #45a049;
+    }
+
+    .videos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .video-thumb {
+      width: 200px;
+      border-radius: 10px;
+    }
+
+    p.footer {
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://1000logos.net/wp-content/uploads/2020/09/Fortnite-Logo-768x432.png" alt="Fortnite" class="logo">
+
+  <h1>Gimtadienio dovana! V-Bucks kodas:</h1>
+
+  <button class="vbucks-code" onclick="copyCode()">VBX1-2FRE-9NITE</button>
+  <p>Paspausk, kad nukopijuotum kodą!</p>
+
+  <h2>Mano Fortnite video</h2>
+  <div class="videos">
+    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg" class="video-thumb" alt="video1">
+    <img src="https://img.youtube.com/vi/3tmd-ClpJxA/0.jpg" class="video-thumb" alt="video2">
+    <img src="https://img.youtube.com/vi/7wtfhZwyrcc/0.jpg" class="video-thumb" alt="video3">
+  </div>
+
+  <p class="footer">Padovanota su meile 💙</p>
+
+  <script>
+    function copyCode() {
+      const code = "VBX1-2FRE-9NITE";
+      navigator.clipboard.writeText(code).then(() => {
+        alert("Kodas nukopijuotas!");
+      });
+    }
+  </script>
+
+</body>
+</html>
