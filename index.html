@@ -20,6 +20,12 @@
       color: #333;
     }
 
+    .countdown {
+      font-size: 18px;
+      margin-top: 10px;
+      color: #555;
+    }
+
     .vbucks-code {
       background-color: #4CAF50;
       color: white;
@@ -41,8 +47,23 @@
       border-radius: 12px;
     }
 
-    form {
+    .stats-button {
+      background-color: #1e90ff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
       margin-top: 40px;
+    }
+
+    .stats-button:hover {
+      background-color: #007acc;
+    }
+
+    form {
+      margin-top: 30px;
     }
 
     input[type="text"] {
@@ -78,6 +99,11 @@
     p.footer {
       margin-top: 40px;
       font-size: 14px;
+      font-weight: bold;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
@@ -86,22 +112,32 @@
   <img src="https://github.com/nfc-tag-info/Pijaus/blob/main/FortniteLogo.svg.png?raw=true" alt="Fortnite Logo" class="logo">
 
   <h1>Su gimtadieniu, Pijau! 🎉</h1>
-  <p>Štai tavo Fortnite dovana – V-Bucks kodas:</p>
+  <div class="countdown" id="countdown">Iki kito gimtadienio liko...</div>
 
+  <p>Štai tavo Fortnite dovana – V-Bucks kodas:</p>
   <button class="vbucks-code" onclick="copyCode()">VBX1-2FRE-9NITE</button>
   <p>Paspausk, kad nukopijuotum kodą!</p>
 
   <img src="https://github.com/nfc-tag-info/Pijaus/blob/main/skiin%20pvz.png?raw=true" alt="Fortnite skinas" class="skin-image">
 
-  <h2>Pažiūrėk savo Fortnite statistiką</h2>
+  <h2>Mano Fortnite statistika</h2>
+  <button class="stats-button" onclick="loadMyStats()">WaidazM</button>
+
+  <h2>Pažiūrėk draugų Fortnite statistiką</h2>
   <form onsubmit="showTracker(event)">
-    <input type="text" id="nickname" placeholder="Įvesk savo nick'ą">
+    <input type="text" id="nickname" placeholder="Įvesk draugo nick'ą">
     <button type="submit">Ieškoti</button>
   </form>
 
   <iframe id="tracker"></iframe>
 
-  <p class="footer">Padovanota su meile 💙</p>
+  <p class="footer">Dovana nuo Mato ir Emos</p>
+
+  <!-- Muzika (galima keisti į mp3 jei atsiųsi) -->
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/wtq2mt.mp3" type="audio/mpeg">
+    Jūsų naršyklė nepalaiko garso paleidimo.
+  </audio>
 
   <script>
     function copyCode() {
@@ -115,12 +151,38 @@
       event.preventDefault();
       const nick = document.getElementById('nickname').value.trim();
       if (nick) {
-        const url = `https://fortnitetracker.com/profile/all/${encodeURIComponent(nick)}`;
-        const iframe = document.getElementById('tracker');
-        iframe.src = url;
-        iframe.style.display = 'block';
+        loadStatsFor(nick);
       }
     }
+
+    function loadMyStats() {
+      loadStatsFor("WaidazM");
+    }
+
+    function loadStatsFor(nick) {
+      const url = `https://fortnitetracker.com/profile/all/${encodeURIComponent(nick)}`;
+      const iframe = document.getElementById('tracker');
+      iframe.src = url;
+      iframe.style.display = 'block';
+    }
+
+    // Atbulinis laikmatis iki 2026-05-23
+    const countdownElement = document.getElementById("countdown");
+    const nextBirthday = new Date("2026-05-23T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = nextBirthday - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownElement.textContent = `Iki kito gimtadienio liko: ${days} d. ${hours} val. ${minutes} min. ${seconds} sek.`;
+    }
+
+    setInterval(updateCountdown, 1000);
   </script>
 
 </body>
