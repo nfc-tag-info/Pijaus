@@ -5,7 +5,7 @@
   <title>Fortnite Gimtadienio Dovana</title>
   <style>
     body {
-      background-color: #c1f0f6;
+      background-color: #331aed;
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
@@ -34,15 +34,34 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin: 20px 0;
+      margin: 20px 0 10px;
     }
 
     .vbucks-code:hover {
       background-color: #45a049;
     }
 
+    .redeem-text {
+      margin-top: 10px;
+    }
+
+    .redeem-btn {
+      background-color: #ff6600;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .redeem-btn:hover {
+      background-color: #e65c00;
+    }
+
     .skin-image {
-      margin-top: 30px;
+      margin-top: 20px;
       width: 300px;
       border-radius: 12px;
     }
@@ -88,21 +107,6 @@
       background-color: #007acc;
     }
 
-    .redeem-btn {
-      background-color: #ff6600;
-      color: white;
-      padding: 12px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-
-    .redeem-btn:hover {
-      background-color: #e65c00;
-    }
-
     iframe {
       margin-top: 20px;
       width: 100%;
@@ -116,6 +120,10 @@
       font-size: 14px;
       font-weight: bold;
     }
+
+    audio {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -128,7 +136,7 @@
   <p>Štai tavo Fortnite dovana – V-Bucks kodas:</p>
   <button class="vbucks-code" onclick="copyCode()">VBX1-2FRE-9NITE</button>
   <p>Paspausk, kad nukopijuotum kodą!</p>
-  <p>Įvesk kodą nuorodoje apačioje:</p>
+  <p class="redeem-text">Įvesk kodą nuorodoje apačioje:</p>
   <a href="https://www.fortnite.com/vbuckscard" target="_blank">
     <button class="redeem-btn">Įvesti V-Bucks kodą</button>
   </a>
@@ -148,15 +156,11 @@
 
   <p class="footer">Dovana nuo Mato ir Emos</p>
 
-  <!-- SoundCloud grotuvas -->
-  <iframe 
-    width="100%" 
-    height="120" 
-    scrolling="no" 
-    frameborder="no" 
-    allow="autoplay" 
-    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-279985186/yt1s-com-fortnite-get-griddy&color=%2300aced&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-  </iframe>
+  <!-- Muzika -->
+  <audio autoplay loop>
+    <source src="fortnite%20track.MP3" type="audio/mpeg">
+    Jūsų naršyklė nepalaiko garso paleidimo.
+  </audio>
 
   <script>
     function copyCode() {
