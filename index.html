@@ -41,6 +41,40 @@
       border-radius: 12px;
     }
 
+    form {
+      margin-top: 40px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #007acc;
+    }
+
+    iframe {
+      margin-top: 20px;
+      width: 100%;
+      height: 600px;
+      border: none;
+      display: none;
+    }
+
     p.footer {
       margin-top: 40px;
       font-size: 14px;
@@ -59,7 +93,15 @@
 
   <img src="https://github.com/nfc-tag-info/Pijaus/blob/main/skiin%20pvz.png?raw=true" alt="Fortnite skinas" class="skin-image">
 
-  <p class="footer">Dovana nuo Mato ir Emos</p>
+  <h2>Pažiūrėk savo Fortnite statistiką</h2>
+  <form onsubmit="showTracker(event)">
+    <input type="text" id="nickname" placeholder="Įvesk savo nick'ą">
+    <button type="submit">Ieškoti</button>
+  </form>
+
+  <iframe id="tracker"></iframe>
+
+  <p class="footer">Padovanota su meile 💙</p>
 
   <script>
     function copyCode() {
@@ -67,6 +109,17 @@
       navigator.clipboard.writeText(code).then(() => {
         alert("Kodas nukopijuotas!");
       });
+    }
+
+    function showTracker(event) {
+      event.preventDefault();
+      const nick = document.getElementById('nickname').value.trim();
+      if (nick) {
+        const url = `https://fortnitetracker.com/profile/all/${encodeURIComponent(nick)}`;
+        const iframe = document.getElementById('tracker');
+        iframe.src = url;
+        iframe.style.display = 'block';
+      }
     }
   </script>
 
