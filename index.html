@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="lt">
 <head>
@@ -135,7 +134,7 @@
   <div class="countdown" id="countdown">Iki kito gimtadienio liko...</div>
 
   <p>Štai tavo Fortnite dovana – 5000 V-Bucks kodas:</p>
-  <button class="vbucks-code" onclick="copyCode()">SJHS-PMA8-78DN-JR4B</button>
+  <button class="vbucks-code" onclick="copyCode(this)">SJHS-PMA8-78DN-JR4B</button>
   <p>Paspausk, kad nukopijuotum kodą!</p>
 
   <div style="margin-top: 10px;">
@@ -172,8 +171,8 @@
   </audio>
 
   <script>
-    function copyCode() {
-      const code = "VBX1-2FRE-9NITE";
+    function copyCode(button) {
+      const code = button.innerText;
       navigator.clipboard.writeText(code).then(() => {
         alert("Kodas nukopijuotas!");
       });
